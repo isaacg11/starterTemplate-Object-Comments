@@ -1,9 +1,9 @@
 # starterTemplate-Object-Comments
-a starter template for creating object comments using the Stamplay SDK
+a Javascript starter template for creating object comments using the Stamplay SDK
 
 **NOTE: Users must be logged in to use the comment function!**
 
-**CLONING: When cloning this repo, you must switch out the appId & object Id's with your own to make it work.**
+**CLONING: When cloning this repo, you must initialize your app first to make it work.**
 
  1) **Initialize the front-end of your app with Stamplay**
  <br>
@@ -26,14 +26,15 @@ Stamplay.init('yourAppId');
 ```
 3) **Establish object to be commented on**
 - Go to your Stamplay editor and go to the **Data** section. Then go to **Objects**
-- Establish what object in the collection your going to comment on by getting it's object **Id**.
+- Establish which object in the collection your going to comment on by getting it's object **Id**.
 
 4) **comment( )**
 ```
 function createObjectComment(){
 	var newComment = document.getElementById('comment').value;
-	var objectInstance = new Stamplay.Cobject('store').Model;
-	objectInstance.fetch('5654afc6b3039e5f75c0d0e9').then(function(){
+	
+	var objectInstance = new Stamplay.Cobject('objectModel').Model;
+	objectInstance.fetch('id').then(function(){
     	return objectInstance.comment(newComment).then(function(){
     		alert('Comment created!');
     	});
